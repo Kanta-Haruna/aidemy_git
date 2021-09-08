@@ -8,7 +8,7 @@ import numpy as np
 
 
 members = ["RM", "JUNGKOOK", "J-HOPE", "JIMIN", "SUGA", "JIN", "V"]
-image_size = 28
+image_size = 64
 
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -37,13 +37,13 @@ def upload_file():
             filepath = os.path.join(UPLOAD_FOLDER, filename)
 
             #受け取った画像を読み込み、np形式に変換
-            img = image.load_img(filepath, grayscale=True, target_size=(image_size,image_size))
+            img = image.load_img(filepath, grayscale=False, target_size=(image_size,image_size))
             img = image.img_to_array(img)
             data = np.array([img])
             #変換したデータをモデルに渡して予測する
             result = model.predict(data)[0]
             predicted = result.argmax()
-            pred_answer = "これは " + members[predicted] + " です"
+            pred_answer = "He is " + members[predicted] + "."
 
             return render_template("index.html",answer=pred_answer)
 
