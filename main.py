@@ -8,7 +8,7 @@ import numpy as np
 
 
 members = ["RM", "JUNGKOOK", "J-HOPE", "JIMIN", "SUGA", "JIN", "V"]
-image_size = 64
+image_size = 150
 
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
